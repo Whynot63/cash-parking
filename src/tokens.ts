@@ -1,6 +1,8 @@
 import type { Address } from 'viem'
 import { base, mainnet } from 'viem/chains'
 
+export const chains = [mainnet, base]
+
 export type Token = {
   name: string
   addresses: Record<number, Address>

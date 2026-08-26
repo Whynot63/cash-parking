@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import { base, mainnet } from 'viem/chains'
+import { ApyTable } from './ApyTable'
 import { CashPicker } from './CashPicker'
-import { tokenCashes, type TokenCashKey } from './tokens'
+import { chains, tokenCashes, type TokenCashKey } from './tokens'
 
-const chains = [mainnet, base]
-
-const short = (address: string) => `${address.slice(0, 6)}…${address.slice(-4)}`
+const chainIds = chains.map(chain => chain.id)
 
 export default function App() {
   const [activeCash, setActiveCash] = useState<TokenCashKey>('usd')
@@ -17,21 +15,7 @@ export default function App() {
       {tokens.length === 0 ? (
         <p className="empty">No tokens</p>
       ) : (
-        <ul className="tokens">
-          {tokens.map(token => (
-            <li key={token.name}>
-              <strong>{token.name}</strong>
-              {chains.map(chain => {
-                const address = token.addresses[chain.id]
-                return (
-                  <span key={chain.id} className="addr">
-                    {chain.name}: {address ? short(address) : '—'}
-                  </span>
-                )
-              })}
-            </li>
-          ))}
-        </ul>
+        <ApyTable tokens={tokens} chainIds={chainIds} />
       )}
     </main>
   )

@@ -61,33 +61,40 @@ main {
   z-index: 1;
 }
 
-.tokens {
-  list-style: none;
-  margin: 2rem 0 0;
-  padding: 0;
-  display: grid;
-  gap: 0.75rem;
+.apy-table {
+  margin-top: 2rem;
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
 }
 
-.tokens li {
-  display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
-  padding: 1rem 1.25rem;
-  background: #fbfaf8;
+.apy-table th,
+.apy-table td {
+  padding: 0.9rem 1.1rem;
   border: 1px solid #e2dcd0;
-  border-radius: 10px;
+  background: #fbfaf8;
 }
 
-.tokens strong {
-  min-width: 4.5rem;
-  font-size: 1.05rem;
-}
-
-.addr {
-  font-size: 0.85rem;
+.apy-table th {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 500;
   color: #6f6759;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.apy-table th:not(:first-child),
+.apy-table td:not(:first-child) {
+  text-align: right;
+}
+
+.apy-table th:first-child,
+.apy-table td:first-child {
+  text-align: left;
+}
+
+.apy-table td:first-child {
+  font-weight: 600;
 }
 
 .empty {
