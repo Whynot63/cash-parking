@@ -1,12 +1,15 @@
-import { useChainApys } from './apy'
+import { useChainApys, type ApyCell } from './apy'
 import { chains, type Token } from './tokens'
 
 const chainName = (id: number) =>
   chains.find(chain => chain.id === id)?.name ?? String(id)
 
-const bestApy = (tokenApys?: Record<number, number>) => {
+const totalApy = (cell: ApyCell) => cell.base + (cell.rewards?.apy ?? 0)
+
+const bestApy = (tokenApys?: Record<number, ApyCell>) => {
   let best: { chainId: number; apy: number } | undefined
-  for (const [id, apy] of Object.entries(tokenApys ?? {})) {
+  for (const [id, cell] of Object.entries(tokenApys ?? {})) {
+    const apy = totalApy(cell)
     if (!best || apy > best.apy) best = { chainId: Number(id), apy }
   }
   return best
@@ -47,10 +50,22 @@ export function ApyTable({
                   )}
                 </td>
                 {chainIds.map(id => {
-                  const apy = tokenApys?.[id]
+                  const cell = tokenApys?.[id]
                   return (
                     <td key={id}>
-                      {apy === undefined ? '—' : `${apy.toFixed(2)} %`}
+                      {cell === undefined ? (
+                        '—'
+                      ) : (
+                        <>
+                          {totalApy(cell).toFixed(2)} %
+                          {cell.rewards && (
+                            <span className="rewards">
+                              +{cell.rewards.apy.toFixed(2)}%{' '}
+                              {cell.rewards.symbols.join('+')}
+                            </span>
+                          )}
+                        </>
+                      )}
                     </td>
                   )
                 })}

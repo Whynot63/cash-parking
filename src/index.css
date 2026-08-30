@@ -126,6 +126,13 @@ main {
   color: #6f6759;
 }
 
+.apy-table .rewards {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  color: #3f7d4f;
+}
+
 .empty {
   margin-top: 2rem;
   color: #6f6759;
