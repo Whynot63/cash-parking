@@ -12,7 +12,23 @@ body {
 main {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem;
+  padding: 2.5rem 1.5rem 4.5rem;
+}
+
+.intro {
+  margin-bottom: 2rem;
+}
+
+.intro h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.6rem;
+}
+
+.intro p {
+  margin: 0;
+  max-width: 46rem;
+  line-height: 1.5;
+  color: #6f6759;
 }
 
 .cash-picker {
@@ -113,4 +129,21 @@ main {
 .empty {
   margin-top: 2rem;
   color: #6f6759;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.6rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6f6759;
+  background: #f3f2ef;
+  border-top: 1px solid #e2dcd0;
+}
+
+.footer a {
+  color: #a5691f;
 }
