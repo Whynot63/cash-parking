@@ -16,7 +16,16 @@ main {
 }
 
 .intro {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
   margin-bottom: 2rem;
+}
+
+.intro-icon {
+  flex-shrink: 0;
+  width: 96px;
+  height: 96px;
 }
 
 .intro h1 {

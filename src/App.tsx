@@ -12,12 +12,21 @@ export default function App() {
   return (
     <main>
       <header className="intro">
-        <h1>Cash Parking</h1>
-        <p>
-          Compare rates across all Aave markets and park your cash in the most
-          profitable one — without risking a deposit in some no-name DeFi
-          protocol.
-        </p>
+        <img
+          className="intro-icon"
+          src="/coins-parking.png"
+          alt=""
+          width={96}
+          height={96}
+        />
+        <div>
+          <h1>Cash Parking</h1>
+          <p>
+            Compare rates across all Aave markets and park your cash in the
+            most profitable one — without risking a deposit in some no-name
+            DeFi protocol.
+          </p>
+        </div>
       </header>
       <CashPicker value={activeCash} onChange={setActiveCash} />
       {tokens.length === 0 ? (
