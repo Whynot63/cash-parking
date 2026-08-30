@@ -18,10 +18,9 @@ import {
   scroll,
   soneium,
   sonic,
-  zksync,
 } from 'viem/chains'
 
-export const chains = [mainnet, arbitrum, avalanche, base, bsc, celo, gnosis, ink, linea, mantle, megaeth, metis, optimism, plasma, polygon, scroll, soneium, sonic, zksync]
+export const chains = [mainnet, arbitrum, avalanche, base, bsc, celo, gnosis, ink, linea, mantle, megaeth, metis, optimism, plasma, polygon, scroll, soneium, sonic] as const
 
 export type Token = {
   name: string
@@ -45,7 +44,6 @@ const usd: Token[] = [
       [plasma.id]: '0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb',
       [polygon.id]: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
       [soneium.id]: '0x3A337a6adA9d885b6Ad95ec48F9b75f197b5AE35',
-      [zksync.id]: '0x493257fD37EDB34451f62EDf8D2a0C418852bA4C',
     },
   },
   {
@@ -66,7 +64,6 @@ const usd: Token[] = [
       [scroll.id]: '0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4',
       [soneium.id]: '0xbA9986D2381edf1DA03B0B9c1f8b00dc4AacC369',
       [sonic.id]: '0x29219dd400f2Bf60E5a23d13Be72B486D4038894',
-      [zksync.id]: '0x1d17CBcF0D6D143135aE902365D2E5e2A16538D4',
     },
   },
   {
@@ -136,7 +133,6 @@ const eth: Token[] = [
       [scroll.id]: '0x5300000000000000000000000000000000000004',
       [soneium.id]: '0x4200000000000000000000000000000000000006',
       [sonic.id]: '0x50c42dEAcD8Fc9773493ED674b675bE577f2634b',
-      [zksync.id]: '0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91',
     },
   },
   {
@@ -153,7 +149,6 @@ const eth: Token[] = [
       [plasma.id]: '0xe48D935e6C9e735463ccCf29a7F11e32bC09136E',
       [polygon.id]: '0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD',
       [scroll.id]: '0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32',
-      [zksync.id]: '0x703b52F2b28fEbcB60E1372858AF5b18849FE867',
     },
   },
   {
@@ -166,7 +161,6 @@ const eth: Token[] = [
       [linea.id]: '0x1Bf74C010E6320bab11e2e5A532b5AC15e0b8aA6',
       [plasma.id]: '0xA3D68b74bF0528fdD07263c60d6488749044914b',
       [scroll.id]: '0x01f0a31698C4d065659b9bdC21B3610292a1c506',
-      [zksync.id]: '0xc1Fa6E2E8667d9bE0Ca938a54c7E0285E9Df924a',
     },
   },
   {

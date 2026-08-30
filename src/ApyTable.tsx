@@ -1,4 +1,4 @@
-import { calculateApysForChains } from './apy'
+import { useChainApys } from './apy'
 import { chains, type Token } from './tokens'
 
 const chainName = (id: number) =>
@@ -19,7 +19,7 @@ export function ApyTable({
   tokens: Token[]
   chainIds: number[]
 }) {
-  const apys = calculateApysForChains(tokens, chainIds)
+  const apys = useChainApys(tokens, chainIds)
 
   return (
     <div className="apy-table-wrap">
