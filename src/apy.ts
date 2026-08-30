@@ -22,14 +22,14 @@ type Reserve = ContractFunctionReturnType<
 export function useChainApys(
   tokens: Token[],
   chainIds: number[],
-): ApysByToken {
+): { apys: ApysByToken; isLoading: boolean } {
   const cells = tokens.flatMap(token =>
     chainIds
       .filter(chainId => pools[chainId] && token.addresses[chainId])
       .map(chainId => ({ token, chainId })),
   )
 
-  const { data } = useReadContracts({
+  const { data, isLoading } = useReadContracts({
     contracts: cells.map(({ token, chainId }) => ({
       chainId,
       address: pools[chainId],
@@ -59,5 +59,5 @@ export function useChainApys(
     )
     ;(apys[token.name] ??= {})[chainId] = rewards ? { base, rewards } : { base }
   })
-  return apys
+  return { apys, isLoading }
 }

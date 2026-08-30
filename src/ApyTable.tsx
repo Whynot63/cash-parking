@@ -22,7 +22,7 @@ export function ApyTable({
   tokens: Token[]
   chainIds: number[]
 }) {
-  const apys = useChainApys(tokens, chainIds)
+  const { apys, isLoading } = useChainApys(tokens, chainIds)
 
   return (
     <div className="apy-table-wrap">
@@ -54,7 +54,11 @@ export function ApyTable({
                   return (
                     <td key={id}>
                       {cell === undefined ? (
-                        '—'
+                        isLoading && token.addresses[id] ? (
+                          <span className="skeleton" />
+                        ) : (
+                          '—'
+                        )
                       ) : (
                         <>
                           {totalApy(cell).toFixed(2)} %
