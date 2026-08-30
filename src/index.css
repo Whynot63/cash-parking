@@ -126,6 +126,12 @@ main {
   color: #6f6759;
 }
 
+.apy-table td.best-cell {
+  color: #a5691f;
+  background: #fdf4e3;
+  font-weight: 600;
+}
+
 .apy-table .rewards {
   display: block;
   margin-top: 0.25rem;

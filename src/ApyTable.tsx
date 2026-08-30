@@ -6,6 +6,8 @@ const chainName = (id: number) =>
 
 const totalApy = (cell: ApyCell) => cell.base + (cell.rewards?.apy ?? 0)
 
+const formatApy = (apy: number) => (apy < 0.01 ? '<0.01' : apy.toFixed(2))
+
 const bestApy = (tokenApys?: Record<number, ApyCell>) => {
   let best: { chainId: number; apy: number } | undefined
   for (const [id, cell] of Object.entries(tokenApys ?? {})) {
@@ -45,14 +47,19 @@ export function ApyTable({
                   {token.name}
                   {best && (
                     <span className="best">
-                      {chainName(best.chainId)} — {best.apy.toFixed(2)}%
+                      {chainName(best.chainId)} — {formatApy(best.apy)}%
                     </span>
                   )}
                 </td>
                 {chainIds.map(id => {
                   const cell = tokenApys?.[id]
                   return (
-                    <td key={id}>
+                    <td
+                      key={id}
+                      className={
+                        best?.chainId === id ? 'best-cell' : undefined
+                      }
+                    >
                       {cell === undefined ? (
                         isLoading && token.addresses[id] ? (
                           <span className="skeleton" />
@@ -61,7 +68,7 @@ export function ApyTable({
                         )
                       ) : (
                         <>
-                          {totalApy(cell).toFixed(2)} %
+                          {formatApy(totalApy(cell))} %
                           {cell.rewards && (
                             <span className="rewards">
                               +{cell.rewards.apy.toFixed(2)}%{' '}
